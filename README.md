@@ -1,6 +1,6 @@
 <p align="center">
     <a target="_blank" href="https://uipilot.plurid.com">
-        <img src="https://raw.githubusercontent.com/plurid/ui-pilot/master/about/identity/ui-pilot.png" height="250px">
+        <img src="https://raw.githubusercontent.com/plurid/ui-pilot/master/about/identity/ui-pilot-logo.png" height="250px">
     </a>
     <br />
     <br />
