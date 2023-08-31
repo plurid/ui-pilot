@@ -17,5 +17,5 @@
 
 
 <h3 align="center">
-    navigate any interface with a human-like pilot
+    Navigate Any Interface with a Human-like Pilot
 </h3>
