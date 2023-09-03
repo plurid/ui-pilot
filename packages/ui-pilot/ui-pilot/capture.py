@@ -12,17 +12,24 @@ from PIL import ImageGrab
 # import pyautogui as pg
 import numpy as np
 import time
+# import os
 
 # from mss import mss
 
 
 
 ### save screenshot
+# time.sleep(2)
 # screenshot = cv2.cvtColor(np.array(pg.screenshot()), cv2.COLOR_RGB2BGR)
 
-# cv2.imshow('screenshot', screenshot)
+# # cv2.imshow('screenshot', screenshot)
+# imagepath = os.path.join(
+#     os.path.expanduser("~/Desktop"),
+#     "screenshot.png"
+# )
+# cv2.imwrite(imagepath, screenshot)
 
-# cv2.waitKey(0)
+# # cv2.waitKey(0)
 
 # cv2.destroyAllWindows()
 
