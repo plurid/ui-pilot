@@ -1,8 +1,13 @@
+import os
+
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import (
     QApplication, QSystemTrayIcon, QMenu, QAction
 )
 
+
+
+basedir = os.path.dirname(__file__)
 
 
 def start_session():
@@ -19,7 +24,8 @@ class TrayApp:
         self.initUI()
 
     def initUI(self):
-        self.icon = QIcon("assets/icon.png")
+        # self.icon = QIcon("assets/icon.png")
+        self.icon = QIcon(os.path.join(basedir, 'assets', 'icon.png'))
         self.tray = QSystemTrayIcon()
         self.tray.setIcon(self.icon)
         self.tray.setVisible(True)
