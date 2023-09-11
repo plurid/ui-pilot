@@ -5,42 +5,55 @@ from PySide2.QtWidgets import (
 
 
 
-app = QApplication([])
-app.setQuitOnLastWindowClosed(False)
-
-# Create the icon
-icon = QIcon("assets/icon.png")
-
-# Create the tray
-tray = QSystemTrayIcon()
-tray.setIcon(icon)
-tray.setVisible(True)
-
-# Create the menu
-menu = QMenu()
-
 def start_session():
     print('start_session')
-action_start_session = QAction("Start Session")
-action_start_session.triggered.connect(start_session)
-menu.addAction(action_start_session)
-
-menu.addSeparator()
 
 def open_dashboard():
     print('open_dashboard')
-action_open_dashboard = QAction("Dashboard")
-action_open_dashboard.triggered.connect(open_dashboard)
-menu.addAction(action_open_dashboard)
 
-menu.addSeparator()
 
-# Add a Quit option to the menu.
-quit = QAction("Quit")
-quit.triggered.connect(app.quit)
-menu.addAction(quit)
+class TrayApp:
+    def __init__(self):
+        self.app = QApplication([])
+        self.app.setQuitOnLastWindowClosed(False)
+        self.initUI()
 
-# Add the menu to the tray
-tray.setContextMenu(menu)
+    def initUI(self):
+        self.icon = QIcon("assets/icon.png")
+        self.tray = QSystemTrayIcon()
+        self.tray.setIcon(self.icon)
+        self.tray.setVisible(True)
 
-app.exec_()
+        self.renderMenu()
+
+    def renderMenu(self):
+        self.menu = QMenu()
+
+        self.action_start_session = QAction("Start Session")
+        self.action_start_session.triggered.connect(start_session)
+        self.menu.addAction(self.action_start_session)
+
+        self.menu.addSeparator()
+
+        self.action_open_dashboard = QAction("Dashboard")
+        self.action_open_dashboard.triggered.connect(open_dashboard)
+        self.menu.addAction(self.action_open_dashboard)
+
+        self.menu.addSeparator()
+
+        self.action_quit = QAction("Quit")
+        self.action_quit.triggered.connect(self.app.quit)
+        self.menu.addAction(self.action_quit)
+
+        self.tray.setContextMenu(self.menu)
+
+    def run(self):
+        self.app.exec_()
+
+
+def main():
+    app = TrayApp()
+    app.run()
+
+if __name__ == '__main__':
+    main()
