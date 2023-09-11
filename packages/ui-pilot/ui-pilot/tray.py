@@ -20,10 +20,20 @@ tray.setVisible(True)
 menu = QMenu()
 
 def start_session():
-    print('click')
-action = QAction("Start Session")
-action.triggered.connect(start_session)
-menu.addAction(action)
+    print('start_session')
+action_start_session = QAction("Start Session")
+action_start_session.triggered.connect(start_session)
+menu.addAction(action_start_session)
+
+menu.addSeparator()
+
+def open_dashboard():
+    print('open_dashboard')
+action_open_dashboard = QAction("Dashboard")
+action_open_dashboard.triggered.connect(open_dashboard)
+menu.addAction(action_open_dashboard)
+
+menu.addSeparator()
 
 # Add a Quit option to the menu.
 quit = QAction("Quit")
